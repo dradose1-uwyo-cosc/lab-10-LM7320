@@ -1,8 +1,8 @@
-# Your Name Here
+# Luke Jakcson
 # UWYO COSC 1010
-# Submission Date
-# Lab XX
-# Lab Section: 
+# Submission Date 11/24/24
+# Lab 10
+# Lab Section: 14
 # Sources, people worked with, help given to: 
 # your
 # comments
@@ -12,12 +12,31 @@
 
 from hashlib import sha256 
 from pathlib import Path
+try:
+    path = Path('hash')
+    contents = path.read_text()
+except:
+    print("couldnt read hash")
+
+try:
+    path1 = Path('rockyou.txt')
+    contents1 = path1.read_text()
+except:
+    print("counldnt read rockyou.txt")
+
 
 def get_hash(to_hash):
     """You can use """
     return sha256(to_hash.encode('utf-8')).hexdigest().upper()
 
+lines = contents1.splitlines()
+for line in lines:
+    has = get_hash(line)
+    if has == contents:
+        print(line)
+       
 
+    
 
 # Files and Exceptions
 
